@@ -12,3 +12,5 @@ This repository is a simple weather app and made during the LondonAppBrewery-Flu
 ```bash
   "apiKey":"YOUR_API_KEY"
 ```
+## :zap: Demo
+![Animated GIF-downsized_large](https://user-images.githubusercontent.com/30024928/118303594-4a7f3980-b4ee-11eb-8047-7101ab22e6d1.gif)
