@@ -1,3 +1,4 @@
+import 'package:clima_app_flutter/exceptions/network_exception.dart';
 import 'package:geolocator/geolocator.dart';
 
 class Location {
@@ -12,7 +13,7 @@ class Location {
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
-      print(e);
+      throw new NetworkException(e);
     }
   }
 }

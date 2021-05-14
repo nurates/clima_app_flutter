@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:clima_app_flutter/exceptions/network_exception.dart';
 import 'package:http/http.dart';
 
 class NetworkHelper {
@@ -12,8 +13,9 @@ class NetworkHelper {
     String data = response.body;
     int statusCode = response.statusCode;
     var decodedBody = jsonDecode(data);
-    if (statusCode == 200) {
-      return decodedBody;
-    }
+    var body = statusCode == 200
+        ? decodedBody
+        : throw NetworkException(decodedBody['message']);
+    return body;
   }
 }
