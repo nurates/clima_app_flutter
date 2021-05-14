@@ -1,5 +1,6 @@
 import 'package:clima_app_flutter/services/weather.dart';
 import 'package:clima_app_flutter/utilities/constants.dart';
+import 'package:clima_app_flutter/utilities/custom_alert.dart';
 import 'package:flutter/material.dart';
 
 class CityScreen extends StatefulWidget {
@@ -53,9 +54,19 @@ class _CityScreenState extends State<CityScreen> {
               ),
               TextButton(
                 onPressed: () async {
-                  if (cityName?.trim()?.isNotEmpty ?? false) {
-                    var weatherData = await weather.getCityWeather(cityName);
-                    Navigator.pop(context, weatherData);
+                  try {
+                    if (cityName?.trim()?.isNotEmpty ?? false) {
+                      var weatherData = await weather.getCityWeather(cityName);
+                      Navigator.pop(context, weatherData);
+                    } else {
+                      CustomAlert().showCityAlert(
+                        context,
+                        'Wrong City Name',
+                      );
+                    }
+                  } catch (errorMessage) {
+                    CustomAlert()
+                        .showCityAlert(context, errorMessage.toString());
                   }
                 },
                 child: Text(
