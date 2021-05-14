@@ -76,8 +76,8 @@ class _LocationScreenState extends State<LocationScreen> {
                     onPressed: () async {
                       var cityWeatherData = await Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                            return CityScreen();
-                          }));
+                        return CityScreen();
+                      }));
                       updateUI(cityWeatherData);
                     },
                     child: Icon(
