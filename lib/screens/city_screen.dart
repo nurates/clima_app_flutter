@@ -27,9 +27,6 @@ class _CityScreenState extends State<CityScreen> {
               Align(
                 alignment: Alignment.topLeft,
                 child: TextButton(
-                  onPressed: () {
-                    Navigator.pop(context, false);
-                  },
                   child: Icon(
                     Icons.arrow_back_ios,
                     size: 50.0,
